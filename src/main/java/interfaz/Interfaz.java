@@ -471,8 +471,6 @@ public class Interfaz extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Número inválido", "El tiempo ingresado no es un número",0);
         }
-        
-        
     }//GEN-LAST:event_btnChangeTimeMouseClicked
 
     

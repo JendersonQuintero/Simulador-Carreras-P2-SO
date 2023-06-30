@@ -19,10 +19,10 @@ public class Enterprise {
     private int racersWin;
     
     public Enterprise() {
-        this.colaLevel1 = new LinkedList();
-        this.colaLevel2 = new LinkedList();
-        this.colaLevel3 = new LinkedList();
-        this.refuerzo = new LinkedList();
+        this.colaLevel1 = new LinkedList<>();
+        this.colaLevel2 = new LinkedList<>();
+        this.colaLevel3 = new LinkedList<>();
+        this.refuerzo = new LinkedList<>();
         this.racersWin = 0;
     }
     
@@ -117,8 +117,12 @@ public class Enterprise {
         return colaLevel2;
     }
 
-    public Queue<Vehicle> getColaLevel3() {
-        return colaLevel3;
+    public String getColaLevel3ToPrint() {
+        String textColaTemp = "";
+        for (Vehicle ve : this.colaLevel3) {
+            textColaTemp += Integer.toString(ve.getuId()) + "\n";
+        }
+        return textColaTemp;
     }
 
     public Queue<Vehicle> getRefuerzo() {
