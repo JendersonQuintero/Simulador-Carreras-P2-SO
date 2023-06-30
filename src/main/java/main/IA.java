@@ -4,7 +4,7 @@
  */
 package main;
 
-import aux.ResultIA;
+import auxiliar.ResultIA;
 import java.util.Random;
 
 /**

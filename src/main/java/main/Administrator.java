@@ -4,8 +4,8 @@
  */
 package main;
 
-import aux.ResultIA;
-import aux.SelectedCars;
+import auxiliar.ResultIA;
+import auxiliar.SelectedCars;
 
 /**
  *
