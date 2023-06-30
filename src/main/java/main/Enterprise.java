@@ -4,6 +4,7 @@ package main;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -19,10 +20,10 @@ public class Enterprise {
     private int racersWin;
     
     public Enterprise() {
-        this.colaLevel1 = new LinkedList();
-        this.colaLevel2 = new LinkedList();
-        this.colaLevel3 = new LinkedList();
-        this.refuerzo = new LinkedList();
+        this.colaLevel1 = new LinkedList<>();
+        this.colaLevel2 = new LinkedList<>();
+        this.colaLevel3 = new LinkedList<>();
+        this.refuerzo = new LinkedList<>();
         this.racersWin = 0;
     }
     
@@ -116,9 +117,41 @@ public class Enterprise {
     public Queue<Vehicle> getColaLevel2() {
         return colaLevel2;
     }
-
+    
     public Queue<Vehicle> getColaLevel3() {
         return colaLevel3;
+    }
+
+    public String getColaLevel3ToPrint() {
+        String idVehicles = "\n";
+        for (Vehicle ve : this.colaLevel3) {
+            idVehicles += "  " + Integer.toString(ve.getuId()) + "\n";
+        }
+        return idVehicles;
+    }
+    
+    public String getColaLevel2ToPrint() {
+        String idVehicles = "\n";
+        for (Vehicle ve : this.colaLevel2) {
+            idVehicles += "  " + Integer.toString(ve.getuId()) + "\n";
+        }
+        return idVehicles;
+    }
+    
+    public String getColaLevel1ToPrint() {
+        String idVehicles = "\n";
+        for (Vehicle ve : this.colaLevel1) {
+            idVehicles += "  " + Integer.toString(ve.getuId()) + "\n";
+        }
+        return idVehicles;
+    }
+    
+    public String getColaRefuerzoToPrint() {
+        String idVehicles = "\n";
+        for (Vehicle ve : this.refuerzo) {
+            idVehicles += "  " + Integer.toString(ve.getuId()) + "\n";
+        }
+        return idVehicles;
     }
 
     public Queue<Vehicle> getRefuerzo() {
