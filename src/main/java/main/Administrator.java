@@ -104,6 +104,8 @@ public class Administrator extends Thread {
                     this.lamborghini.addPriority1Vehicle(result.getVehicle2());
                 }
             }
+            this.view.showResultRacer(result);
+            Thread.sleep(timeToResultIA);
             this.reviewCars += 2;
 
             if (this.reviewCars == 4) {

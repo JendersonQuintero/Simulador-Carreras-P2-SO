@@ -1,7 +1,7 @@
 package interfaz;
 
+import auxiliar.ResultIA;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 import main.Administrator;
 import main.Enterprise;
 import main.IA;
@@ -426,8 +426,6 @@ public class Interfaz extends javax.swing.JFrame {
         this.textVehicleBu.setText(Integer.toString(this.admin.getV1Selected().getuId()));
         this.textVehicleLam.setText(Integer.toString(this.admin.getV2Selected().getuId()));
         
-        
-        
         this.textCalidadRefuerzoBugatti.setText(this.enterpriseBuga.getColaRefuerzoToPrint());
         this.textCalidadMediaBugatti.setText(this.enterpriseBuga.getColaLevel2ToPrint());
         this.textCalidadAltaBugatti.setText(this.enterpriseBuga.getColaLevel1ToPrint());
@@ -437,6 +435,20 @@ public class Interfaz extends javax.swing.JFrame {
         this.textCalidadMediaLamborghini.setText(this.enterpriseLambo.getColaLevel2ToPrint());
         this.textCalidadAltaLamborghini.setText(this.enterpriseLambo.getColaLevel1ToPrint());
         this.textCalidadBajaLamborghini.setText(this.enterpriseLambo.getColaLevel3ToPrint());
+    }
+    
+    public void showResultRacer(ResultIA result) {
+        switch (result.getResult()) {
+                case "GANADOR" -> {
+                    
+                }
+                case "CARRERA INVALIDA" -> {
+                    
+                }
+                case "EMPATE" -> {
+                    
+                }
+            }
     }
     
     private void btnStartSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartSimulationActionPerformed
