@@ -433,11 +433,10 @@ public class Interfaz extends javax.swing.JFrame {
         this.textCalidadAltaBugatti.setText(this.enterpriseBuga.getColaLevel1ToPrint());
         this.textCalidadBajaBugatti.setText(this.enterpriseBuga.getColaLevel3ToPrint());
         
-        this.textCalidadRefuerzoBugatti.setText(this.enterpriseBuga.getColaRefuerzoToPrint());
-        this.textCalidadMediaBugatti.setText(this.enterpriseBuga.getColaLevel2ToPrint());
-        this.textCalidadAltaBugatti.setText(this.enterpriseBuga.getColaLevel1ToPrint());
-        this.textCalidadBajaBugatti.setText(this.enterpriseBuga.getColaLevel3ToPrint());
-        
+        this.textCalidadRefuerzoLamborghini.setText(this.enterpriseLambo.getColaRefuerzoToPrint());
+        this.textCalidadMediaLamborghini.setText(this.enterpriseLambo.getColaLevel2ToPrint());
+        this.textCalidadAltaLamborghini.setText(this.enterpriseLambo.getColaLevel1ToPrint());
+        this.textCalidadBajaLamborghini.setText(this.enterpriseLambo.getColaLevel3ToPrint());
     }
     
     private void btnStartSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartSimulationActionPerformed
