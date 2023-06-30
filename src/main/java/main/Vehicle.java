@@ -20,15 +20,15 @@ public class Vehicle {
     
     private final double renderVehicle;
     
-    private final double umbralLevel1 = 0.80;
-    private final double umbralLevel2 = 0.50;
-    
+    private final double umbralLevel2 = 0.6;
+    private final double umbralLevel3 = 0.4;
     
     public Vehicle(String enterprise) {
         Random random = new Random();
         
         this.uId = random.nextInt(1000);
         this.enterprise = enterprise;
+        this.counterPriority = 0;
         
         double randomQualityCarroceria = random.nextDouble();
         double randomQualityChasis = random.nextDouble();
@@ -41,15 +41,15 @@ public class Vehicle {
         double qualityRueda = 0;
         
         if (randomQualityCarroceria >= betterQualityCarroceria) {
-            qualityCarroceria += 0.35;
+            qualityCarroceria += 0.25;
         } else if (randomQualityCarroceria >= (betterQualityCarroceria - 0.3) && randomQualityCarroceria < betterQualityCarroceria) {
-            qualityCarroceria += 0.15;
+            qualityCarroceria += 0.10;
         } else {
-            qualityCarroceria += 0.1;
+            qualityCarroceria += 0.05;
         }
         
         if (randomQualityChasis >= betterQualityChasis) {
-            qualityChasis += 0.25;
+            qualityChasis += 0.15;
         } else if (randomQualityChasis >= (betterQualityChasis - 0.3) && randomQualityChasis < betterQualityChasis) {
             qualityChasis += 0.1;
         } else {
@@ -57,11 +57,11 @@ public class Vehicle {
         }
         
         if (randomQualityMotor >= betterQualityMotor) {
-            qualityMotor += 0.35;
+            qualityMotor += 0.25;
         } else if (randomQualityMotor >= (betterQualityMotor - 0.3) && randomQualityMotor < betterQualityMotor) {
-            qualityMotor += 0.15;
-        } else {
             qualityMotor += 0.1;
+        } else {
+            qualityMotor += 0.05;
         }
         
         if (randomQualityRueda >= betterQualityRueda) {
@@ -74,15 +74,14 @@ public class Vehicle {
         
         this.renderVehicle = qualityCarroceria + qualityChasis + qualityMotor + qualityRueda;
         
-        if (renderVehicle >= umbralLevel1) {
-            this.priorityLevel = 1;
-        } else if (renderVehicle >= umbralLevel2 && renderVehicle < umbralLevel1) {
+        if (renderVehicle <= this.umbralLevel3) {
+            this.priorityLevel = 3;
+        } else if (renderVehicle <= this.umbralLevel2) {
             this.priorityLevel = 2;
         } else {
-            this.priorityLevel = 3;
+            this.priorityLevel = 1;
         }
     }
-    
     
     public int getuId() {
         return uId;

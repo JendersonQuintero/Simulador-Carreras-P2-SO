@@ -71,17 +71,15 @@ public class Enterprise {
     }
     
     public void deleteById(int id, Queue<Vehicle> listVe) {
-        listVe.removeIf(vh -> vh.getuId() == id)
+        //listVe.removeIf(vh -> vh.getuId() == id);
     }
     
     public void updateVehicles() {
-        ArrayList deleteVehicles = new ArrayList();
         this.colaLevel2.forEach((Vehicle ve) -> {
             if (ve.getCounterPriority() < 8) {
                 ve.addCounterPriority();
             } else {
                 ve.resetCounterPriority();
-                deleteVehicles.add(ve.getuId());
                 ve.setPriorityLevel(1);
                 this.addPriority1Vehicle(ve);
             }
@@ -92,16 +90,12 @@ public class Enterprise {
                 ve.addCounterPriority();
             } else {
                 ve.resetCounterPriority();
-                deleteVehicles.add(ve.getuId());
                 ve.setPriorityLevel(2);
                 this.addPriority1Vehicle(ve);
             }
         });
         
-        deleteVehicles.forEach((int id) -> {
-            this.colaLevel2.removeIf(vh -> vh.getuId() == id);
-            this.colaLevel3.removeIf(vh -> vh.getuId() == id);
-        });
+        
         
     }
 
