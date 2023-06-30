@@ -3,6 +3,7 @@ package main;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.ArrayList;
 
 /**
  *
@@ -33,12 +34,28 @@ public class Enterprise {
         };
     }
     
+    public Vehicle getVehicleRefac() {
+        return this.refuerzo.poll();
+    }
+    
     public void addVehicle(Vehicle vehicle) {
         switch (vehicle.getPriorityLevel()) {
             case 1 -> this.colaLevel1.add(vehicle);
             case 2 -> this.colaLevel2.add(vehicle);
             default -> this.colaLevel3.add(vehicle);
         }
+    }
+    
+    public void addPriority1Vehicle(Vehicle vehicle) {
+        this.colaLevel1.add(vehicle);
+    }
+    
+    public void addPriority2Vehicle(Vehicle vehicle) {
+        this.colaLevel2.add(vehicle);
+    }
+    
+    public void addPriority3Vehicle(Vehicle vehicle) {
+        this.colaLevel3.add(vehicle);
     }
     
     public void addVehicleRef(Vehicle vehicle) {
@@ -51,6 +68,41 @@ public class Enterprise {
             case 2 -> this.colaLevel2.removeIf(vh -> vh.getuId() == vehicle.getuId());
             default -> this.colaLevel3.removeIf(vh -> vh.getuId() == vehicle.getuId());
         }
+    }
+    
+    public void deleteById(int id, Queue<Vehicle> listVe) {
+        listVe.removeIf(vh -> vh.getuId() == id)
+    }
+    
+    public void updateVehicles() {
+        ArrayList deleteVehicles = new ArrayList();
+        this.colaLevel2.forEach((Vehicle ve) -> {
+            if (ve.getCounterPriority() < 8) {
+                ve.addCounterPriority();
+            } else {
+                ve.resetCounterPriority();
+                deleteVehicles.add(ve.getuId());
+                ve.setPriorityLevel(1);
+                this.addPriority1Vehicle(ve);
+            }
+        });
+        
+        this.colaLevel3.forEach((Vehicle ve) -> {
+            if (ve.getCounterPriority() < 8) {
+                ve.addCounterPriority();
+            } else {
+                ve.resetCounterPriority();
+                deleteVehicles.add(ve.getuId());
+                ve.setPriorityLevel(2);
+                this.addPriority1Vehicle(ve);
+            }
+        });
+        
+        deleteVehicles.forEach((int id) -> {
+            this.colaLevel2.removeIf(vh -> vh.getuId() == id);
+            this.colaLevel3.removeIf(vh -> vh.getuId() == id);
+        });
+        
     }
 
     public Queue<Vehicle> getColaLevel1() {
@@ -76,7 +128,5 @@ public class Enterprise {
     public void addRacerWin() {
         this.racersWin++;
     }
-    
-    
     
 }
