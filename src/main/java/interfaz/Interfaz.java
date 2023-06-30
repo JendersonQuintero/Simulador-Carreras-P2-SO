@@ -1,8 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package interfaz;
+
+import javax.swing.JOptionPane;
+import main.Administrator;
+import main.Enterprise;
+import main.IA;
 
 /**
  *
@@ -10,9 +11,12 @@ package interfaz;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz
-     */
+    public Administrator admin;
+    public IA ia;
+    public Enterprise enterpriseBuga;
+    public Enterprise enterpriseLambo;
+    
+    
     public Interfaz() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -42,8 +46,8 @@ public class Interfaz extends javax.swing.JFrame {
         panelCarrera = new javax.swing.JPanel();
         titulo40 = new javax.swing.JLabel();
         titulo41 = new javax.swing.JLabel();
-        textDaysRemainingBu8 = new javax.swing.JTextField();
-        textDaysRemainingBu9 = new javax.swing.JTextField();
+        textVehicleLam = new javax.swing.JTextField();
+        textVehicleBu = new javax.swing.JTextField();
         panelColasLamborguini = new javax.swing.JPanel();
         titulo6 = new javax.swing.JLabel();
         textDaysRemainingBu5 = new javax.swing.JTextField();
@@ -54,19 +58,20 @@ public class Interfaz extends javax.swing.JFrame {
         titulo37 = new javax.swing.JLabel();
         panelIA = new javax.swing.JPanel();
         titulo62 = new javax.swing.JLabel();
-        textDaysRemainingBu1 = new javax.swing.JTextField();
+        textStatusIA = new javax.swing.JTextField();
         titulo63 = new javax.swing.JLabel();
         panelMarcadorGanadores = new javax.swing.JPanel();
         titulo61 = new javax.swing.JLabel();
         titulo30 = new javax.swing.JLabel();
         titulo31 = new javax.swing.JLabel();
-        textEEarningsBu = new javax.swing.JTextField();
-        textECostBu = new javax.swing.JTextField();
+        textCounterWinB = new javax.swing.JTextField();
+        textCounterWinL = new javax.swing.JTextField();
         titulo64 = new javax.swing.JLabel();
         panelTiempo = new javax.swing.JPanel();
         titulo60 = new javax.swing.JLabel();
-        textDaysRemainingBu = new javax.swing.JTextField();
+        inputTime = new javax.swing.JTextField();
         titulo59 = new javax.swing.JLabel();
+        btnChangeTime = new javax.swing.JToggleButton();
         buttonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -100,9 +105,9 @@ public class Interfaz extends javax.swing.JFrame {
         btnStopSimulation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnStopSimulation.setForeground(new java.awt.Color(255, 255, 255));
         btnStopSimulation.setText("Terminar Simulación");
-        btnStopSimulation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopSimulationActionPerformed(evt);
+        btnStopSimulation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnStopSimulationMouseClicked(evt);
             }
         });
         PanelPrincipal.add(btnStopSimulation, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 590, 340, 30));
@@ -185,21 +190,21 @@ public class Interfaz extends javax.swing.JFrame {
         titulo41.setText("Carrera");
         panelCarrera.add(titulo41, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 300, 20));
 
-        textDaysRemainingBu8.setEditable(false);
-        textDaysRemainingBu8.setBackground(new java.awt.Color(255, 255, 255));
-        textDaysRemainingBu8.setForeground(new java.awt.Color(0, 0, 0));
-        textDaysRemainingBu8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textDaysRemainingBu8.setToolTipText("");
-        textDaysRemainingBu8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelCarrera.add(textDaysRemainingBu8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 110, 50));
+        textVehicleLam.setEditable(false);
+        textVehicleLam.setBackground(new java.awt.Color(255, 255, 255));
+        textVehicleLam.setForeground(new java.awt.Color(0, 0, 0));
+        textVehicleLam.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textVehicleLam.setToolTipText("");
+        textVehicleLam.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelCarrera.add(textVehicleLam, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 110, 50));
 
-        textDaysRemainingBu9.setEditable(false);
-        textDaysRemainingBu9.setBackground(new java.awt.Color(255, 255, 255));
-        textDaysRemainingBu9.setForeground(new java.awt.Color(0, 0, 0));
-        textDaysRemainingBu9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textDaysRemainingBu9.setToolTipText("");
-        textDaysRemainingBu9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelCarrera.add(textDaysRemainingBu9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 110, 50));
+        textVehicleBu.setEditable(false);
+        textVehicleBu.setBackground(new java.awt.Color(255, 255, 255));
+        textVehicleBu.setForeground(new java.awt.Color(0, 0, 0));
+        textVehicleBu.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textVehicleBu.setToolTipText("");
+        textVehicleBu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelCarrera.add(textVehicleBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 110, 50));
 
         PanelPrincipal.add(panelCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 300, 140));
 
@@ -212,7 +217,7 @@ public class Interfaz extends javax.swing.JFrame {
         titulo6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         titulo6.setForeground(new java.awt.Color(0, 0, 0));
         titulo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo6.setText("Colas de Calidad Lamborguini");
+        titulo6.setText("Colas de Calidad Lamborghini");
         panelColasLamborguini.add(titulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 310, 20));
 
         textDaysRemainingBu5.setEditable(false);
@@ -276,16 +281,16 @@ public class Interfaz extends javax.swing.JFrame {
         titulo62.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         titulo62.setForeground(new java.awt.Color(0, 0, 0));
         titulo62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo62.setText("IA");
+        titulo62.setText("Status IA");
         panelIA.add(titulo62, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 300, 20));
 
-        textDaysRemainingBu1.setEditable(false);
-        textDaysRemainingBu1.setBackground(new java.awt.Color(255, 255, 255));
-        textDaysRemainingBu1.setForeground(new java.awt.Color(0, 0, 0));
-        textDaysRemainingBu1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textDaysRemainingBu1.setToolTipText("");
-        textDaysRemainingBu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelIA.add(textDaysRemainingBu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 260, 30));
+        textStatusIA.setEditable(false);
+        textStatusIA.setBackground(new java.awt.Color(255, 255, 255));
+        textStatusIA.setForeground(new java.awt.Color(0, 0, 0));
+        textStatusIA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textStatusIA.setToolTipText("");
+        textStatusIA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelIA.add(textStatusIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 260, 30));
 
         titulo63.setBackground(new java.awt.Color(0, 0, 0));
         titulo63.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -312,7 +317,7 @@ public class Interfaz extends javax.swing.JFrame {
         titulo30.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         titulo30.setForeground(new java.awt.Color(0, 0, 0));
         titulo30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo30.setText("Lamborguini");
+        titulo30.setText("Lamborghini");
         panelMarcadorGanadores.add(titulo30, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 110, -1));
 
         titulo31.setBackground(new java.awt.Color(0, 0, 0));
@@ -322,23 +327,23 @@ public class Interfaz extends javax.swing.JFrame {
         titulo31.setText("Bugatti");
         panelMarcadorGanadores.add(titulo31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 110, -1));
 
-        textEEarningsBu.setEditable(false);
-        textEEarningsBu.setBackground(new java.awt.Color(255, 255, 255));
-        textEEarningsBu.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        textEEarningsBu.setForeground(new java.awt.Color(0, 0, 0));
-        textEEarningsBu.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textEEarningsBu.setToolTipText("");
-        textEEarningsBu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelMarcadorGanadores.add(textEEarningsBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 110, 50));
+        textCounterWinB.setEditable(false);
+        textCounterWinB.setBackground(new java.awt.Color(255, 255, 255));
+        textCounterWinB.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        textCounterWinB.setForeground(new java.awt.Color(0, 0, 0));
+        textCounterWinB.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textCounterWinB.setToolTipText("");
+        textCounterWinB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelMarcadorGanadores.add(textCounterWinB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 110, 50));
 
-        textECostBu.setEditable(false);
-        textECostBu.setBackground(new java.awt.Color(255, 255, 255));
-        textECostBu.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        textECostBu.setForeground(new java.awt.Color(0, 0, 0));
-        textECostBu.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textECostBu.setToolTipText("");
-        textECostBu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelMarcadorGanadores.add(textECostBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 110, 50));
+        textCounterWinL.setEditable(false);
+        textCounterWinL.setBackground(new java.awt.Color(255, 255, 255));
+        textCounterWinL.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        textCounterWinL.setForeground(new java.awt.Color(0, 0, 0));
+        textCounterWinL.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textCounterWinL.setToolTipText("");
+        textCounterWinL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelMarcadorGanadores.add(textCounterWinL, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 110, 50));
 
         titulo64.setBackground(new java.awt.Color(0, 0, 0));
         titulo64.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -358,16 +363,15 @@ public class Interfaz extends javax.swing.JFrame {
         titulo60.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         titulo60.setForeground(new java.awt.Color(0, 0, 0));
         titulo60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo60.setText("Control de tiempos");
+        titulo60.setText("Control de tiempo");
         panelTiempo.add(titulo60, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 300, 20));
 
-        textDaysRemainingBu.setEditable(false);
-        textDaysRemainingBu.setBackground(new java.awt.Color(255, 255, 255));
-        textDaysRemainingBu.setForeground(new java.awt.Color(0, 0, 0));
-        textDaysRemainingBu.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textDaysRemainingBu.setToolTipText("");
-        textDaysRemainingBu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelTiempo.add(textDaysRemainingBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 260, 30));
+        inputTime.setBackground(new java.awt.Color(255, 255, 255));
+        inputTime.setForeground(new java.awt.Color(0, 0, 0));
+        inputTime.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inputTime.setToolTipText("");
+        inputTime.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelTiempo.add(inputTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 130, 30));
 
         titulo59.setBackground(new java.awt.Color(0, 0, 0));
         titulo59.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -375,6 +379,14 @@ public class Interfaz extends javax.swing.JFrame {
         titulo59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo59.setText("Gestion de Trabajo");
         panelTiempo.add(titulo59, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 260, 20));
+
+        btnChangeTime.setText("Cambiar");
+        btnChangeTime.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnChangeTimeMouseClicked(evt);
+            }
+        });
+        panelTiempo.add(btnChangeTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 110, 30));
 
         PanelPrincipal.add(panelTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 300, 90));
 
@@ -415,12 +427,25 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnStopSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopSimulationActionPerformed
+    public void updateDataView() {
+        this.textStatusIA.setText(this.ia.getStatusIA());
+        this.textCounterWinB.setText(Integer.toString(this.enterpriseBuga.getRacersWin()));
+        this.textCounterWinL.setText(Integer.toString(this.enterpriseLambo.getRacersWin()));
         
-    }//GEN-LAST:event_btnStopSimulationActionPerformed
-
+        this.textVehicleBu.setText(Integer.toString(this.admin.getV1Selected().getuId()));
+        this.textVehicleLam.setText(Integer.toString(this.admin.getV2Selected().getuId()));
+        
+    }
+    
     private void btnStartSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartSimulationActionPerformed
+        this.enterpriseBuga = new Enterprise();
+        this.enterpriseLambo = new Enterprise();
+        this.ia = new IA();
         
+        this.admin = new Administrator(this.enterpriseBuga, this.enterpriseLambo, this.ia, this);
+        
+        this.admin.loadCarsInit();
+        this.admin.start();
     }//GEN-LAST:event_btnStartSimulationActionPerformed
 
     private void buttonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalirActionPerformed
@@ -431,48 +456,35 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textDaysRemainingBu5ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void btnStopSimulationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStopSimulationMouseClicked
+        this.admin.stopPlant();
+    }//GEN-LAST:event_btnStopSimulationMouseClicked
+
+    private void btnChangeTimeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChangeTimeMouseClicked
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+            Long newTime = Long.valueOf(this.inputTime.getText());
+            if (this.admin != null) {
+                this.admin.setTimeSimulation(newTime);
+            } else {
+                JOptionPane.showMessageDialog(null, "StartSimulación", "Inicie la simulación",0);
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Número inválido", "El tiempo ingresado no es un número",0);
         }
-        //</editor-fold>
+        
+        
+    }//GEN-LAST:event_btnChangeTimeMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interfaz().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelPrincipal;
     private javax.swing.JLabel alta;
     private javax.swing.JLabel baja;
+    private javax.swing.JToggleButton btnChangeTime;
     private javax.swing.JButton btnStartSimulation;
     private javax.swing.JButton btnStopSimulation;
     private javax.swing.JButton buttonSalir;
+    private javax.swing.JTextField inputTime;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel media;
     private javax.swing.JPanel panelCarrera;
@@ -484,15 +496,14 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField textCalidadAltaBugatti;
     private javax.swing.JTextField textCalidadBajaBugatti;
     private javax.swing.JTextField textCalidadMediaBugatti;
-    private javax.swing.JTextField textDaysRemainingBu;
-    private javax.swing.JTextField textDaysRemainingBu1;
+    private javax.swing.JTextField textCounterWinB;
+    private javax.swing.JTextField textCounterWinL;
     private javax.swing.JTextField textDaysRemainingBu5;
     private javax.swing.JTextField textDaysRemainingBu6;
     private javax.swing.JTextField textDaysRemainingBu7;
-    private javax.swing.JTextField textDaysRemainingBu8;
-    private javax.swing.JTextField textDaysRemainingBu9;
-    private javax.swing.JTextField textECostBu;
-    private javax.swing.JTextField textEEarningsBu;
+    private javax.swing.JTextField textStatusIA;
+    private javax.swing.JTextField textVehicleBu;
+    private javax.swing.JTextField textVehicleLam;
     private javax.swing.JLabel titulo30;
     private javax.swing.JLabel titulo31;
     private javax.swing.JLabel titulo35;
