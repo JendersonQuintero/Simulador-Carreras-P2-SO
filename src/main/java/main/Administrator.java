@@ -106,6 +106,7 @@ public class Administrator extends Thread {
             }
             this.view.showResultRacer(result);
             Thread.sleep(timeToResultIA);
+            this.view.cleanResultRacer();
             this.reviewCars += 2;
 
             if (this.reviewCars == 4) {

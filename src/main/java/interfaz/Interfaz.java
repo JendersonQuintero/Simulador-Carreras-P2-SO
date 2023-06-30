@@ -50,8 +50,8 @@ public class Interfaz extends javax.swing.JFrame {
         panelCarrera = new javax.swing.JPanel();
         titulo40 = new javax.swing.JLabel();
         titulo41 = new javax.swing.JLabel();
-        textVehicleLam = new javax.swing.JTextField();
-        textVehicleBu = new javax.swing.JTextField();
+        textVehicleBu = new java.awt.TextArea();
+        textVehicleLam = new java.awt.TextArea();
         panelColasLamborguini = new javax.swing.JPanel();
         titulo6 = new javax.swing.JLabel();
         alta2 = new javax.swing.JLabel();
@@ -71,8 +71,8 @@ public class Interfaz extends javax.swing.JFrame {
         titulo30 = new javax.swing.JLabel();
         titulo31 = new javax.swing.JLabel();
         titulo64 = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
-        textArea2 = new java.awt.TextArea();
+        textCounterWinB = new javax.swing.JTextField();
+        textCounterWinL = new javax.swing.JTextField();
         panelTiempo = new javax.swing.JPanel();
         titulo60 = new javax.swing.JLabel();
         inputTime = new javax.swing.JTextField();
@@ -80,8 +80,8 @@ public class Interfaz extends javax.swing.JFrame {
         btnChangeTime = new javax.swing.JToggleButton();
         buttonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        label1 = new java.awt.Label();
-        label3 = new java.awt.Label();
+        labelResultLambo = new java.awt.Label();
+        labelResultBuga = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -193,23 +193,15 @@ public class Interfaz extends javax.swing.JFrame {
         titulo41.setText("Carrera");
         panelCarrera.add(titulo41, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 300, 20));
 
-        textVehicleLam.setEditable(false);
-        textVehicleLam.setBackground(new java.awt.Color(255, 255, 255));
-        textVehicleLam.setForeground(new java.awt.Color(0, 0, 0));
-        textVehicleLam.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textVehicleLam.setToolTipText("");
-        textVehicleLam.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelCarrera.add(textVehicleLam, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 110, 50));
-
+        textVehicleBu.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textVehicleBu.setEditable(false);
-        textVehicleBu.setBackground(new java.awt.Color(255, 255, 255));
-        textVehicleBu.setForeground(new java.awt.Color(0, 0, 0));
-        textVehicleBu.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textVehicleBu.setToolTipText("");
-        textVehicleBu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelCarrera.add(textVehicleBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 110, 50));
+        textVehicleBu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        panelCarrera.add(textVehicleBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 110, 110));
 
-        PanelPrincipal.add(panelCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 300, 140));
+        textVehicleLam.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        panelCarrera.add(textVehicleLam, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 110, 110));
+
+        PanelPrincipal.add(panelCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 300, 190));
 
         panelColasLamborguini.setBackground(new java.awt.Color(255, 102, 102));
         panelColasLamborguini.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -311,14 +303,14 @@ public class Interfaz extends javax.swing.JFrame {
         titulo30.setForeground(new java.awt.Color(0, 0, 0));
         titulo30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo30.setText("Lamborghini");
-        panelMarcadorGanadores.add(titulo30, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 110, -1));
+        panelMarcadorGanadores.add(titulo30, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 110, -1));
 
         titulo31.setBackground(new java.awt.Color(0, 0, 0));
         titulo31.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         titulo31.setForeground(new java.awt.Color(0, 0, 0));
         titulo31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo31.setText("Bugatti");
-        panelMarcadorGanadores.add(titulo31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, -1));
+        panelMarcadorGanadores.add(titulo31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 110, -1));
 
         titulo64.setBackground(new java.awt.Color(0, 0, 0));
         titulo64.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -326,10 +318,24 @@ public class Interfaz extends javax.swing.JFrame {
         titulo64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo64.setText("Marcador");
         panelMarcadorGanadores.add(titulo64, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 300, 20));
-        panelMarcadorGanadores.add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 110, 90));
-        panelMarcadorGanadores.add(textArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 110, 90));
 
-        PanelPrincipal.add(panelMarcadorGanadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 300, 200));
+        textCounterWinB.setEditable(false);
+        textCounterWinB.setBackground(new java.awt.Color(255, 255, 255));
+        textCounterWinB.setForeground(new java.awt.Color(0, 0, 0));
+        textCounterWinB.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textCounterWinB.setToolTipText("");
+        textCounterWinB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelMarcadorGanadores.add(textCounterWinB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 110, 50));
+
+        textCounterWinL.setEditable(false);
+        textCounterWinL.setBackground(new java.awt.Color(255, 255, 255));
+        textCounterWinL.setForeground(new java.awt.Color(0, 0, 0));
+        textCounterWinL.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textCounterWinL.setToolTipText("");
+        textCounterWinL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelMarcadorGanadores.add(textCounterWinL, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 110, 50));
+
+        PanelPrincipal.add(panelMarcadorGanadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 300, 140));
 
         panelTiempo.setBackground(new java.awt.Color(255, 102, 102));
         panelTiempo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -384,17 +390,15 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 1000, 30));
 
-        label1.setAlignment(java.awt.Label.CENTER);
-        label1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        label1.setForeground(new java.awt.Color(204, 0, 0));
-        label1.setText("label1");
-        PanelPrincipal.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 470, 310, 30));
+        labelResultLambo.setAlignment(java.awt.Label.CENTER);
+        labelResultLambo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labelResultLambo.setForeground(new java.awt.Color(204, 0, 0));
+        PanelPrincipal.add(labelResultLambo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 470, 310, 70));
 
-        label3.setAlignment(java.awt.Label.CENTER);
-        label3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        label3.setForeground(new java.awt.Color(204, 0, 0));
-        label3.setText("label1");
-        PanelPrincipal.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 310, 30));
+        labelResultBuga.setAlignment(java.awt.Label.CENTER);
+        labelResultBuga.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labelResultBuga.setForeground(new java.awt.Color(204, 0, 0));
+        PanelPrincipal.add(labelResultBuga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 310, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -421,8 +425,11 @@ public class Interfaz extends javax.swing.JFrame {
         this.textCounterWinB.setText(Integer.toString(this.enterpriseBuga.getRacersWin()));
         this.textCounterWinL.setText(Integer.toString(this.enterpriseLambo.getRacersWin()));
         
-        this.textVehicleBu.setText(Integer.toString(this.admin.getV1Selected().getuId()));
-        this.textVehicleLam.setText(Integer.toString(this.admin.getV2Selected().getuId()));
+        String infoBuga = "ID: " + Integer.toString(this.admin.getV1Selected().getuId()) + "\nRdm: " + Double.toString(this.admin.getV1Selected().getRenderVehicle()) + "\nPrio: " + Integer.toString(this.admin.getV1Selected().getPriorityLevel());
+        String infoLambo = "ID: " + Integer.toString(this.admin.getV2Selected().getuId()) + "\nRdm: " + Double.toString(this.admin.getV2Selected().getRenderVehicle()) + "\nPrio: " + Integer.toString(this.admin.getV2Selected().getPriorityLevel());;
+        
+        this.textVehicleBu.setText(infoBuga);
+        this.textVehicleLam.setText(infoLambo);
         
         this.textCalidadRefuerzoBugatti.setText(this.enterpriseBuga.getColaRefuerzoToPrint());
         this.textCalidadMediaBugatti.setText(this.enterpriseBuga.getColaLevel2ToPrint());
@@ -437,16 +444,27 @@ public class Interfaz extends javax.swing.JFrame {
     
     public void showResultRacer(ResultIA result) {
         switch (result.getResult()) {
-                case "GANADOR" -> {
-                    
-                }
-                case "CARRERA INVALIDA" -> {
-                    
-                }
-                case "EMPATE" -> {
-                    
+            case "GANADOR" -> {
+                if (result.getVehicle1().getEnterprise().equals("B")) {
+                    this.labelResultBuga.setText("GANADOR");
+                } else {
+                    this.labelResultLambo.setText("GANADOR");
                 }
             }
+            case "CARRERA INVALIDA" -> {
+                this.labelResultBuga.setText("INVALIDADA");
+                this.labelResultLambo.setText("INVALIDADA");
+            }
+            case "EMPATE" -> {
+                this.labelResultBuga.setText("EMPATE");
+                this.labelResultLambo.setText("EMPATE");
+            }
+        }
+    }
+    
+    public void cleanResultRacer() {
+        this.labelResultBuga.setText("");
+        this.labelResultLambo.setText("");
     }
     
     private void btnStartSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartSimulationActionPerformed
@@ -496,8 +514,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton buttonSalir;
     private javax.swing.JTextField inputTime;
     private javax.swing.JLabel jLabel1;
-    private java.awt.Label label1;
-    private java.awt.Label label3;
+    private java.awt.Label labelResultBuga;
+    private java.awt.Label labelResultLambo;
     private javax.swing.JLabel media;
     private javax.swing.JLabel media1;
     private javax.swing.JPanel panelCarrera;
@@ -506,8 +524,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel panelIA;
     private javax.swing.JPanel panelMarcadorGanadores;
     private javax.swing.JPanel panelTiempo;
-    private java.awt.TextArea textArea1;
-    private java.awt.TextArea textArea2;
     private java.awt.TextArea textCalidadAltaBugatti;
     private java.awt.TextArea textCalidadAltaLamborghini;
     private java.awt.TextArea textCalidadBajaBugatti;
@@ -516,9 +532,11 @@ public class Interfaz extends javax.swing.JFrame {
     private java.awt.TextArea textCalidadMediaLamborghini;
     private java.awt.TextArea textCalidadRefuerzoBugatti;
     private java.awt.TextArea textCalidadRefuerzoLamborghini;
+    private javax.swing.JTextField textCounterWinB;
+    private javax.swing.JTextField textCounterWinL;
     private javax.swing.JTextField textStatusIA;
-    private javax.swing.JTextField textVehicleBu;
-    private javax.swing.JTextField textVehicleLam;
+    private java.awt.TextArea textVehicleBu;
+    private java.awt.TextArea textVehicleLam;
     private javax.swing.JLabel titulo30;
     private javax.swing.JLabel titulo31;
     private javax.swing.JLabel titulo40;
