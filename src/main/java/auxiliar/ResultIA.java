@@ -8,7 +8,11 @@ import main.Vehicle;
 
 /**
  *
+<<<<<<< HEAD
+ * @author JendersonQ
+=======
  * @author NorangelM
+>>>>>>> nora
  */
 public class ResultIA {
     
