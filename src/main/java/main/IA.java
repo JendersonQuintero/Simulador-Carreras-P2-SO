@@ -43,7 +43,7 @@ public class IA {
         }
         this.statusIA = "Anunciando el resultado...";
         view.updateDataView();
-        Thread.sleep(timeSimulation/2);
+        Thread.sleep(timeSimulation);
         this.statusIA = "Esperando...";
         view.updateDataView();
         return racerResult;
