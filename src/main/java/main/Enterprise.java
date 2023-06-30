@@ -116,13 +116,41 @@ public class Enterprise {
     public Queue<Vehicle> getColaLevel2() {
         return colaLevel2;
     }
+    
+    public Queue<Vehicle> getColaLevel3() {
+        return colaLevel3;
+    }
 
     public String getColaLevel3ToPrint() {
-        String textColaTemp = "";
+        String idVehicles = "\n";
         for (Vehicle ve : this.colaLevel3) {
-            textColaTemp += Integer.toString(ve.getuId()) + "\n";
+            idVehicles += "  " + Integer.toString(ve.getuId()) + "\n";
         }
-        return textColaTemp;
+        return idVehicles;
+    }
+    
+    public String getColaLevel2ToPrint() {
+        String idVehicles = "\n";
+        for (Vehicle ve : this.colaLevel2) {
+            idVehicles += "  " + Integer.toString(ve.getuId()) + "\n";
+        }
+        return idVehicles;
+    }
+    
+    public String getColaLevel1ToPrint() {
+        String idVehicles = "\n";
+        for (Vehicle ve : this.colaLevel1) {
+            idVehicles += "  " + Integer.toString(ve.getuId()) + "\n";
+        }
+        return idVehicles;
+    }
+    
+    public String getColaRefuerzoToPrint() {
+        String idVehicles = "\n";
+        for (Vehicle ve : this.refuerzo) {
+            idVehicles += "  " + Integer.toString(ve.getuId()) + "\n";
+        }
+        return idVehicles;
     }
 
     public Queue<Vehicle> getRefuerzo() {
